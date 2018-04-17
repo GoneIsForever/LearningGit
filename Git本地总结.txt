@@ -1,0 +1,53 @@
+一、Git介绍
+是一个分布式的版本控制系统，初始为Linux所创，后续为各种项目所用。
+相比较于SVN，Git提交时，会在服务器生成一个完整的镜像，即使本地代码出错，也可以重新拉下来进行修改。
+
+二、git使用
+①安装
+Windows  ：下载Git for window，并下载对应的Git工具，进行一键安装；
+
+②配置身份
+a.  git config --global user.name "goneisforever"
+b.  git config --global user.email "981189615@qq.com"
+
+查看是否配置成功，可以省略后面的参数进行确认，如
+git config --global user.name
+结果为：goneisforever，否则身份配置失败
+
+③创建代码仓库
+a.新建文件夹
+b.鼠标右键，git bash，进入命令行，输入：git init
+c.通过ls  -al 查看是否有".git"文件存在，存在则代码仓库创建成功
+
+④提交本地代码
+a.在代码仓库中创建需要提交的代码，以新建的"git总结.txt"为例
+b.git add git总结.txt
+c.git commit -m "git的一个总结"
+
+备注：
+如果不需要提交一些不改变的内容，可以新建一个.gitignore文件，编辑里面的内容，把不需要提交的文件忽略掉；
+
+使用时，可以结合git add . 进行全部添加进行提交，其中会自动忽略.gitignore中的文件
+
+⑤查看修改内容
+a.git status 查看修改了的内容 
+b.git diff 查看具体改变了的内容
+
+⑥查看提交记录
+git log	
+
+⑦撤销未提交的修改
+git checkout 具体路径，将路径下未add的内容还原
+git reset HEAD 具体路径，将路径下已经add的内容取消add
+
+⑧版本回退
+a.git log 找到需要回退的版本，取前七位字符即可
+b.git reset --hard  HEAD ^,^代表回退到上一个版本，或者是git reset --hard 七位字符
+
+⑨版本回退后需要再次回退到之前最新版本
+a.git reflog查看版本号
+b.git reset --hard 七位字符
+
+
+
+
